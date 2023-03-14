@@ -1,22 +1,34 @@
-//--@Author: Eliyahu Yishaiovizh 
 
-******HTTP client**********
+HTTP client
+Authored by Eliyahu Yishaiovizh 
 
-//--Description
-This class accept argument in main ,URL and arguments -p , -r . build request by protocol http and connect to server and print the web.
+# Description
 
-//--Arguments
- You need to type this the format:
-[–p n <text>] [–r n <pr1=value1 pr2=value2 …>] <URL>
+HTTP stands for Hyper Text Transfer Protocol and is used for communication among web clients and servers. HTTP has a simple stateless client/server paradigm. The web client initiates a conversation by opening a connection to the server. Once a connection is set up, the client sends an HTTP request to the server. Upon receiving the HTTP request from the client, the server sends an HTTP response back to the client. An HTTP request consists of two parts: a header and a body (In this project, the basic HTTP request from a client doesn’t contain a body). 
+this project will implement the following content: An HTTP client that constructs an HTTP request based on the user’s command line input, sends the request to a Web server, receives the reply from the server, and displays the reply message on the screen. 
 
-//--files
-client.c  
+# Program D.B.
+The main databases of this program are dynamic arrays. the program will allocate the host, text, path. finally all of the allocations will create the request, that will be allocated too as allocated array.
 
-//--assumes
-I assumed that if they entered a URL without '\' after the host
- (in case there is no path) I add '\' to the end and the request is correct.
+# Input
+Command line usage: client [–p n <text>] [–r n <pr1=value1 pr2=value2 …>] <URL>. The flags and the URL can come in any order, the only limitation is that the parameters should come right after the flag –r and the text should come right after the flag –p. 
+
+# Output
+an HTTP request based on the options specified in the command line
+connection to the server,  sending the HTTP request to the server, receiving  an HTTP response and displaying the response on the screen.
+
+1.in any case of a failure in one of the system calls, it will be "perror(<sys_call>)" and exiting the program. for errors on gethostbyname it will be herror ).
+2. In any case of wrong command usage, the program will print "Usage: client [-p n <text>] [-r n < pr1=value1 pr2=value2 …>] <URL>" 
+  
+# Program Files
+client.c
+
+# How to compile?
+compile: gcc -Wall –o client client.c
+  
+run: ./client 
 
 
-//--how to compile
-gcc client.c -o client
-./client
+
+
+
